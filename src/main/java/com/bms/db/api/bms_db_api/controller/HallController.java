@@ -28,4 +28,5 @@ public class HallController {
         this.hallRepository.save(hall);
         return new ResponseEntity(hall, HttpStatus.CREATED);
     }
+
 }
