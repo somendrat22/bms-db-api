@@ -22,7 +22,7 @@ public class TheatreController {
         this.theatreRepository = theatreRepository;
     }
 
-    @PostMapping("/createTheatre")
+    @PostMapping("/create")
     public ResponseEntity createTheatre(@RequestBody Theatre theatre){
         theatreRepository.save(theatre);
         return new ResponseEntity(theatre, HttpStatus.CREATED);

@@ -29,4 +29,6 @@ public class HallController {
         return new ResponseEntity(hall, HttpStatus.CREATED);
     }
 
+
+
 }

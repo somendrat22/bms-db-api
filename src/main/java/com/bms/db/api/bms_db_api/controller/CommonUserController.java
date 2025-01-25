@@ -5,10 +5,7 @@ import com.bms.db.api.bms_db_api.repository.AppUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/db/user")
@@ -26,5 +23,13 @@ public class CommonUserController {
         this.appUserRepository.save(user);
         return new ResponseEntity(user, HttpStatus.CREATED);
     }
+
+    @GetMapping("/email/{userEmail}")
+    public ResponseEntity getUserByEmail(@PathVariable String userEmail
+                                         ){
+        AppUser appUser = appUserRepository.findByEmail(userEmail);
+        return new ResponseEntity(appUser, HttpStatus.OK);
+    }
+
 
 }
